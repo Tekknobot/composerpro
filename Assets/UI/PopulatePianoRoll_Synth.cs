@@ -35,27 +35,27 @@ public class PopulatePianoRoll_Synth : MonoBehaviour
                 newObj.name = noteName+ totalNotes.ToString(); 
             }  
             if (i == 1) {
-                newObj.GetComponent<RawImage>().color = Color.black; 
+                newObj.GetComponent<RawImage>().color = Color.white; 
                 newObj.name = noteName+ totalNotes.ToString();  
             }    
             if (i == 2) {
-                newObj.GetComponent<RawImage>().color = Color.white;
+                newObj.GetComponent<RawImage>().color = Color.black;
                 newObj.name = noteName+ totalNotes.ToString();   
             }    
             if (i == 3) {
-                newObj.GetComponent<RawImage>().color = Color.black;  
+                newObj.GetComponent<RawImage>().color = Color.white;  
                 newObj.name = noteName+ totalNotes.ToString();  
             }    
             if (i == 4) {
-                newObj.GetComponent<RawImage>().color = Color.white; 
+                newObj.GetComponent<RawImage>().color = Color.black; 
                 newObj.name = noteName+ totalNotes.ToString();   
             }    
             if (i == 5) {
-                newObj.GetComponent<RawImage>().color = Color.black; 
+                newObj.GetComponent<RawImage>().color = Color.white; 
                 newObj.name = noteName+ totalNotes.ToString();  
             }    
             if (i == 6) {
-                newObj.GetComponent<RawImage>().color = Color.white;
+                newObj.GetComponent<RawImage>().color = Color.black;
                 newObj.name = noteName+ totalNotes.ToString();   
             }    
             if (i == 7) {
@@ -63,19 +63,19 @@ public class PopulatePianoRoll_Synth : MonoBehaviour
                 newObj.name = noteName+ totalNotes.ToString();   
             }  
             if (i == 8) {
-                newObj.GetComponent<RawImage>().color = Color.black;
+                newObj.GetComponent<RawImage>().color = Color.white;
                 newObj.name = noteName+ totalNotes.ToString();    
             }     
             if (i == 9) {
-                newObj.GetComponent<RawImage>().color = Color.white;
+                newObj.GetComponent<RawImage>().color = Color.black;
                 newObj.name = noteName+ totalNotes.ToString();    
             }   
             if (i == 10) {
-                newObj.GetComponent<RawImage>().color = Color.black; 
+                newObj.GetComponent<RawImage>().color = Color.white; 
                 newObj.name = noteName+ totalNotes.ToString();  
             }    
             if (i == 11) {
-                newObj.GetComponent<RawImage>().color = Color.white;
+                newObj.GetComponent<RawImage>().color = Color.black;
                 newObj.name = noteName+ totalNotes.ToString();    
             }                                                                                                                                                                                                   
         }
