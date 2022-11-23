@@ -7,16 +7,27 @@ public class PopulateGrid_Synth : MonoBehaviour
 {
     public GameObject cell;
     public int numberToCreate = 16;
-    public int rowTotal = 84;
+    public int groupTotal = 7;
     public string noteName;
     int rowCount = -1;
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < rowTotal; i++) {
+        for (int i = 0; i < groupTotal; i++) {
             rowCount++;
             PopulateWhiteRow();
+            PopulateWhiteRow();
+            PopulateBlackRow();
+            PopulateWhiteRow();
+            PopulateBlackRow();
+            PopulateWhiteRow();
+            PopulateBlackRow();
+            PopulateWhiteRow();                        
+            PopulateWhiteRow();
+            PopulateBlackRow();
+            PopulateWhiteRow();
+            PopulateBlackRow();                        
         }
     }
 
