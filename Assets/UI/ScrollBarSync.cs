@@ -16,7 +16,6 @@ public class ScrollBarSync : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         GetComponent<Scrollbar>().value = scrollbarToSync.GetComponent<Scrollbar>().value;
     }
 }

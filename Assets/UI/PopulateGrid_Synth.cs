@@ -15,7 +15,6 @@ public class PopulateGrid_Synth : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < groupTotal; i++) {
-            rowCount++;
             PopulateWhiteRow();
             PopulateWhiteRow();
             PopulateBlackRow();
@@ -33,6 +32,7 @@ public class PopulateGrid_Synth : MonoBehaviour
 
     void PopulateWhiteRow() {
         GameObject newObj;
+        rowCount++;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(cell, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f); 
@@ -42,6 +42,7 @@ public class PopulateGrid_Synth : MonoBehaviour
 
     void PopulateBlackRow() {
         GameObject newObj;
+        rowCount++;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(cell, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.5f, 0.5f, 0.5f);   
