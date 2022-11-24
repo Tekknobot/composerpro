@@ -16,11 +16,17 @@ public class PopulatePianoRoll_Labels : MonoBehaviour
 
     TextMeshProUGUI textmeshPro;
 
+    int octavelabel_7 = 7;
+    int octavelabel_6 = 6;
+
+    int z = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < numberOfGroups; i++) {
             PopulateRoll(noteName);
+            z++;
         }
     }
 
@@ -36,62 +42,62 @@ public class PopulatePianoRoll_Labels : MonoBehaviour
             if (i == 0) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "C7"; 
+                textmeshPro.text = "C"+(octavelabel_7-z); 
             }  
             if (i == 1) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "B6";                  
+                textmeshPro.text = "B"+(octavelabel_6-z);                  
             }    
             if (i == 2) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "A#6";                   
+                textmeshPro.text = "A#"+(octavelabel_6-z);                   
             }    
             if (i == 3) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "A6";                  
+                textmeshPro.text = "A"+(octavelabel_6-z);                  
             }    
             if (i == 4) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "G#6";                   
+                textmeshPro.text = "G#"+(octavelabel_6-z);                   
             }    
             if (i == 5) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "G6";                  
+                textmeshPro.text = "G"+(octavelabel_6-z);                  
             }    
             if (i == 6) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "F#6";                  
+                textmeshPro.text = "F#"+(octavelabel_6-z);                  
             }    
             if (i == 7) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "F6";  
+                textmeshPro.text = "F"+(octavelabel_6-z);  
             }  
             if (i == 8) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "E6";                    
+                textmeshPro.text = "E"+(octavelabel_6-z);                    
             }     
             if (i == 9) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "D#6";     
+                textmeshPro.text = "D#"+(octavelabel_6-z);     
             }   
             if (i == 10) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "D6";                 
+                textmeshPro.text = "D"+(octavelabel_6-z);                 
             }    
             if (i == 11) {
                 newObj.name = noteName+ totalNotes.ToString();
                 textmeshPro = GameObject.Find(newObj.name).GetComponent<TextMeshProUGUI>();
-                textmeshPro.text = "C#6";    
+                textmeshPro.text = "C#"+(octavelabel_6-z);    
             }                                                                                                                                                                                                   
         }
     }                             
