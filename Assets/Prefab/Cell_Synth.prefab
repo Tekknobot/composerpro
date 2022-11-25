@@ -273,6 +273,14 @@ MonoBehaviour:
   gridCellColor: {r: 0, g: 0, b: 0, a: 0}
   synthSequencer: {fileID: 0}
   startCell: 0
+  startStep: 0
   dragCellCount: 0
   itemOne: 0
   itemTwo: 0
+  myNumbers: 
+  noteTemp:
+    note_: 0
+    start_: 0
+    end_: 0
+    velocity_: 0
+    parent: {fileID: 0}

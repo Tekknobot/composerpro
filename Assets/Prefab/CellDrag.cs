@@ -21,6 +21,8 @@ public class CellDrag : MonoBehaviour
     string myString;//string with your numbers
     public int[] myNumbers;
     int number;
+    
+    public GameObject tempStartCell;
 
     public AudioHelm.Note noteTemp;	
     bool flag = false;
@@ -79,12 +81,12 @@ public class CellDrag : MonoBehaviour
     public void MouseClick() {
         if (this.GetComponent<RawImage>().color == Color.red) {
             this.GetComponent<RawImage>().color = gridCellColor;
-            GetComponent<Outline>().enabled = true;      
+            UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(1, -1);      
             noteTemp = synthSequencer.GetComponent<HelmSequencer>().GetNoteInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);           
             synthSequencer.GetComponent<HelmSequencer>().RemoveNotesInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);            
             for (int k = 0; k < (noteTemp.end_ - noteTemp.start_); k++) { 
                 GameObject.Find("Row_"+DecodeStringRow().ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<RawImage>().color = gridCellColor;
-                GameObject.Find("Row_"+DecodeStringRow().ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<Outline>().enabled = true; 
+                GameObject.Find("Row_"+DecodeStringRow().ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<Outline>().effectDistance = new Vector2(1, -1);
             }
             return;
         } 
@@ -94,20 +96,17 @@ public class CellDrag : MonoBehaviour
         }     
     }
 
-    public void MouseDragBegin() {		
+    public void MouseDragBegin() {
+        UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
+        UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(1, -1);        		
         startStep = DecodeStringStep();
+        tempStartCell = UIRaycast(mousePos);
     }
 
-    public void MouseDragLength() {
-        if(Input.GetAxis("Mouse X") > 0 && Input.GetAxis("Mouse Y") > 0) {
-            return;
-        }    
-        if(Input.GetAxis("Mouse X") > 0 && Input.GetAxis("Mouse Y") < 0) {
-            return;
-        }         
+    public void MouseDragLength() {      
         if(Input.GetAxis("Mouse X") > 0) {
             UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
-            UIRaycast(mousePos).GetComponent<Outline>().enabled = false;  
+            UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(0, -1);  
             MyVar = UIRaycast(mousePos).name; 
         }    
 		if(Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse Y") < 0 || Input.GetAxis("Mouse Y") > 0 ) {
@@ -120,6 +119,7 @@ public class CellDrag : MonoBehaviour
             return;
         }    
         synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+dragCellCount);
+        tempStartCell.GetComponent<Outline>().effectDistance = new Vector2(1, -1);       
         ResetDragCount();
     }    
 
@@ -152,7 +152,6 @@ public class CellDrag : MonoBehaviour
             }
         } 
         int step = myNumbers[5];
-        Debug.Log(step);
         return step;  
     }     
 }
