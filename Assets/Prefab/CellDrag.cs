@@ -73,7 +73,7 @@ public class CellDrag : MonoBehaviour
         string nameCell = UIRaycast(mousePos).name;
 		string numbersOnly = Regex.Replace(nameCell, "[^0-9]", "");
 		int numCell = int.Parse(numbersOnly);
-        itemOne = (numCell % 100) / 10;
+        itemOne = (numCell % 1000) / 10;
         itemTwo = numCell % 10;      
         synthSequencer.GetComponent<HelmSequencer>().AddNote(108-itemOne, itemTwo, itemTwo+1);
         Debug.Log(itemOne +" "+ itemTwo);        
@@ -83,7 +83,7 @@ public class CellDrag : MonoBehaviour
         string nameCell = UIRaycast(mousePos).name;
 		string numbersOnly = Regex.Replace(nameCell, "[^0-9]", "");
 		int numCell = int.Parse(numbersOnly);
-        itemOne = (numCell % 100) / 10;
+        itemOne = (numCell % 1000) / 10;
         itemTwo = numCell % 10;      
         Debug.Log(itemOne +" "+ itemTwo);
     }
