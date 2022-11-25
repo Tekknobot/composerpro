@@ -13,14 +13,17 @@ public class CellDrag : MonoBehaviour
     public GameObject synthSequencer;
 
     public int startCell;
+    public int startStep;
     public int dragCellCount = 0;
     public int itemOne;
     public int itemTwo;
 
+    string myString;//string with your numbers
+    public int[] myNumbers;
+    int number;
+
     public AudioHelm.Note noteTemp;	
-
     bool flag = false;
-
     PointerEventData mousePos;
 
 	private string m_MyVar = null;
@@ -74,37 +77,25 @@ public class CellDrag : MonoBehaviour
     }   
 
     public void MouseClick() {
-        string nameCell = UIRaycast(mousePos).name;
-        string numbersOnly = Regex.Replace(nameCell, "[^0-9]", "");
-        int numCell = int.Parse(numbersOnly);
-        itemOne = (numCell % 1000) / 10;
-        itemTwo = numCell % 10;
-                    
         if (this.GetComponent<RawImage>().color == Color.red) {
             this.GetComponent<RawImage>().color = gridCellColor;
             GetComponent<Outline>().enabled = true;      
-            noteTemp = synthSequencer.GetComponent<HelmSequencer>().GetNoteInRange(108-itemOne, itemTwo, itemTwo+1);           
-            synthSequencer.GetComponent<HelmSequencer>().RemoveNotesInRange(108-itemOne, itemTwo, itemTwo+1);            
+            noteTemp = synthSequencer.GetComponent<HelmSequencer>().GetNoteInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);           
+            synthSequencer.GetComponent<HelmSequencer>().RemoveNotesInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);            
             for (int k = 0; k < (noteTemp.end_ - noteTemp.start_); k++) { 
-                GameObject.Find("Row_"+itemOne.ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<RawImage>().color = gridCellColor;
-                GameObject.Find("Row_"+itemOne.ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<Outline>().enabled = true; 
+                GameObject.Find("Row_"+DecodeStringRow().ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<RawImage>().color = gridCellColor;
+                GameObject.Find("Row_"+DecodeStringRow().ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<Outline>().enabled = true; 
             }
             return;
         } 
         else {          
             this.GetComponent<RawImage>().color = Color.red;
-            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-itemOne, itemTwo, itemTwo+1);        
-            Debug.Log(itemOne +" "+ itemTwo);   
+            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);          
         }     
     }
 
     public void MouseDragBegin() {		
-        string nameCell = UIRaycast(mousePos).name;
-		string numbersOnly = Regex.Replace(nameCell, "[^0-9]", "");
-		int numCell = int.Parse(numbersOnly);
-        itemOne = (numCell % 1000) / 10;
-        itemTwo = numCell % 10;      
-        Debug.Log(itemOne +" "+ itemTwo);
+        startStep = DecodeStringStep();
     }
 
     public void MouseDragLength() {
@@ -114,12 +105,40 @@ public class CellDrag : MonoBehaviour
     }   
 
     public void MouseDragEnd() {        
-        synthSequencer.GetComponent<HelmSequencer>().AddNote(108-itemOne, itemTwo, itemTwo+dragCellCount);
-        Debug.Log("DC " + dragCellCount);
+        synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+dragCellCount);
         ResetDragCount();
     }    
 
     public void ResetDragCount() {
         dragCellCount = 0;
     }    
+    
+    int DecodeStringRow(){
+        string nameCell = UIRaycast(mousePos).name;
+        string numbersOnly = Regex.Replace(nameCell, "[^0-9]", " ");        
+        string[] stringArray = numbersOnly.Split(" "[0]);//Split myString wherever there's a " " and make a string array out of it.
+        myNumbers = new int[stringArray.Length];
+        for(int num = 0; num < stringArray.Length; num++) {
+            if (int.TryParse(stringArray[num], out number)) {
+                myNumbers[num] = int.Parse(stringArray[num]);
+            }
+        } 
+        int row = myNumbers[4];
+        return row;  
+    } 
+
+    int DecodeStringStep(){
+        string nameCell = UIRaycast(mousePos).name;
+        string numbersOnly = Regex.Replace(nameCell, "[^0-9]", " ");        
+        string[] stringArray = numbersOnly.Split(" "[0]);//Split myString wherever there's a " " and make a string array out of it.
+        myNumbers = new int[stringArray.Length];
+        for(int num = 0; num < stringArray.Length; num++) {
+            if (int.TryParse(stringArray[num], out number)) {
+                myNumbers[num] = int.Parse(stringArray[num]);
+            }
+        } 
+        int step = myNumbers[5];
+        Debug.Log(step);
+        return step;  
+    }     
 }
