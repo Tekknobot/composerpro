@@ -39,7 +39,7 @@ public class MixersScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     // Update is called once per frame

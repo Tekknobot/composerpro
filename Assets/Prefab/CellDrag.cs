@@ -99,12 +99,26 @@ public class CellDrag : MonoBehaviour
     }
 
     public void MouseDragLength() {
-        UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
-        UIRaycast(mousePos).GetComponent<Outline>().enabled = false;  
-        MyVar = UIRaycast(mousePos).name;     
+        if(Input.GetAxis("Mouse X") > 0 && Input.GetAxis("Mouse Y") > 0) {
+            return;
+        }    
+        if(Input.GetAxis("Mouse X") > 0 && Input.GetAxis("Mouse Y") < 0) {
+            return;
+        }         
+        if(Input.GetAxis("Mouse X") > 0) {
+            UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
+            UIRaycast(mousePos).GetComponent<Outline>().enabled = false;  
+            MyVar = UIRaycast(mousePos).name; 
+        }    
+		if(Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse Y") < 0 || Input.GetAxis("Mouse Y") > 0 ) {
+			return;
+		}            
     }   
 
-    public void MouseDragEnd() {        
+    public void MouseDragEnd() {    
+        if (UIRaycast(mousePos).GetComponent<RawImage>().color != Color.red) {
+            return;
+        }    
         synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+dragCellCount);
         ResetDragCount();
     }    
