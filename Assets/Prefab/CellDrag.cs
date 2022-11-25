@@ -8,13 +8,16 @@ using System.Text.RegularExpressions;
 
 public class CellDrag : MonoBehaviour
 {
-    public GameObject synthSequencer;
     public RawImage img;
+    public Color gridCellColor;
+    public GameObject synthSequencer;
 
     public int startCell;
     public int dragCellCount = 0;
     public int itemOne;
     public int itemTwo;
+
+    public AudioHelm.Note noteTemp;	
 
     bool flag = false;
 
@@ -55,6 +58,7 @@ public class CellDrag : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gridCellColor = img.GetComponent<RawImage>().color;
         synthSequencer = GameObject.Find("SynthSequencer");
         this.GetComponent<CellDrag>().OnVariableChange += VariableChangeHandler;
     }
@@ -71,12 +75,27 @@ public class CellDrag : MonoBehaviour
 
     public void MouseClick() {
         string nameCell = UIRaycast(mousePos).name;
-		string numbersOnly = Regex.Replace(nameCell, "[^0-9]", "");
-		int numCell = int.Parse(numbersOnly);
+        string numbersOnly = Regex.Replace(nameCell, "[^0-9]", "");
+        int numCell = int.Parse(numbersOnly);
         itemOne = (numCell % 1000) / 10;
-        itemTwo = numCell % 10;      
-        synthSequencer.GetComponent<HelmSequencer>().AddNote(108-itemOne, itemTwo, itemTwo+1);
-        Debug.Log(itemOne +" "+ itemTwo);        
+        itemTwo = numCell % 10;
+                    
+        if (this.GetComponent<RawImage>().color == Color.red) {
+            this.GetComponent<RawImage>().color = gridCellColor;
+            GetComponent<Outline>().enabled = true;      
+            noteTemp = synthSequencer.GetComponent<HelmSequencer>().GetNoteInRange(108-itemOne, itemTwo, itemTwo+1);           
+            synthSequencer.GetComponent<HelmSequencer>().RemoveNotesInRange(108-itemOne, itemTwo, itemTwo+1);            
+            for (int k = 0; k < (noteTemp.end_ - noteTemp.start_); k++) { 
+                GameObject.Find("Row_"+itemOne.ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<RawImage>().color = gridCellColor;
+                GameObject.Find("Row_"+itemOne.ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<Outline>().enabled = true; 
+            }
+            return;
+        } 
+        else {          
+            this.GetComponent<RawImage>().color = Color.red;
+            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-itemOne, itemTwo, itemTwo+1);        
+            Debug.Log(itemOne +" "+ itemTwo);   
+        }     
     }
 
     public void MouseDragBegin() {		
@@ -98,7 +117,7 @@ public class CellDrag : MonoBehaviour
         synthSequencer.GetComponent<HelmSequencer>().AddNote(108-itemOne, itemTwo, itemTwo+dragCellCount);
         Debug.Log("DC " + dragCellCount);
         ResetDragCount();
-    }  
+    }    
 
     public void ResetDragCount() {
         dragCellCount = 0;

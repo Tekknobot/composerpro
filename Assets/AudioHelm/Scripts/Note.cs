@@ -54,7 +54,7 @@ namespace AudioHelm
         }
 
         [SerializeField]
-        private float start_;
+        public float start_;
         /// <summary>
         /// The note on time measured in sixteenth notes.
         /// </summary>
@@ -78,7 +78,7 @@ namespace AudioHelm
         }
 
         [SerializeField]
-        private float end_;
+        public float end_;
         /// <summary>
         /// The note off time measured in sixteenth notes.
         /// </summary>

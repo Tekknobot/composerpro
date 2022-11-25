@@ -19,13 +19,11 @@ public class ChangeCellColor_Synth : MonoBehaviour
 
     public void ChangeColorToRed() {
         if (this.GetComponent<RawImage>().color == Color.red) {
-            img.GetComponent<RawImage>().color = gridCellColor;
-            GetComponent<Outline>().enabled = true;    
-            RemoveNotesFromDrumSequencer(this.gameObject);         
+       
         }
         else {
             for (int i = 0; i < 84; i++) {
-                img.GetComponent<RawImage>().color = Color.red;
+                //img.GetComponent<RawImage>().color = Color.red;
                 for (int h = 0; h < 16; h++) {
                     if (GameObject.Find("Row_"+i.ToString()+"_"+h).GetComponent<RawImage>().color == Color.red) {
                         //synthSequencer.GetComponent<HelmSequencer>().AddNote(108-i, h, h+1);
