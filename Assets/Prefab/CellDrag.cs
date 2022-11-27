@@ -65,7 +65,7 @@ public class CellDrag : MonoBehaviour
     {
         gridCellColor = img.GetComponent<RawImage>().color;
         synthSequencer = GameObject.Find("SynthSequencer");
-        this.GetComponent<CellDrag>().OnVariableChange += VariableChangeHandler;
+        this.GetComponent<CellDrag>().OnVariableChange += VariableChangeHandler;             
     }
 
     // Update is called once per frame
@@ -80,19 +80,22 @@ public class CellDrag : MonoBehaviour
 
     public void MouseClick() {
         if (this.GetComponent<RawImage>().color == Color.red) {
+            noteTemp = synthSequencer.GetComponent<HelmSequencer>().GetNoteInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);           
             this.GetComponent<RawImage>().color = gridCellColor;
             UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(1, -1);      
-            noteTemp = synthSequencer.GetComponent<HelmSequencer>().GetNoteInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);           
-            synthSequencer.GetComponent<HelmSequencer>().RemoveNotesInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);            
+            PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ DecodeStringStep() +"_"+ (DecodeStringStep()+1), 0); 
             for (int k = 0; k < (noteTemp.end_ - noteTemp.start_); k++) { 
                 GameObject.Find("Row_"+DecodeStringRow().ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<RawImage>().color = gridCellColor;
                 GameObject.Find("Row_"+DecodeStringRow().ToString()+"_"+(noteTemp.start_+k).ToString()).GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+                PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ (noteTemp.start_+k) +"_"+ (noteTemp.end_), 0);
             }
-            return;
+            synthSequencer.GetComponent<HelmSequencer>().RemoveNotesInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);            
+            //return;
         } 
-        else {          
+        else if (this.GetComponent<RawImage>().color == gridCellColor) {          
             this.GetComponent<RawImage>().color = Color.red;
-            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);          
+            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);  
+            PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ DecodeStringStep() +"_"+ (DecodeStringStep()+1), 1); 
         }     
     }
 
@@ -120,6 +123,7 @@ public class CellDrag : MonoBehaviour
         }    
         synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+dragCellCount);
         tempStartCell.GetComponent<Outline>().effectDistance = new Vector2(1, -1);       
+        PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ startStep +"_"+ (startStep+dragCellCount), 1); 
         ResetDragCount();
     }    
 
@@ -153,5 +157,5 @@ public class CellDrag : MonoBehaviour
         } 
         int step = myNumbers[5];
         return step;  
-    }     
+    }    
 }

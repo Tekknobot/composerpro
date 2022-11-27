@@ -13,9 +13,9 @@ public class SequencerButton : MonoBehaviour
     void Start()
     {   
         drum.SetActive(true);
-        synth.SetActive(false);  
+        synth.SetActive(true);  
         textmeshPro = GameObject.Find("SequencerButtonText").GetComponent<TextMeshProUGUI>();
-        textmeshPro.text = "DRUM SEQ";
+        textmeshPro.text = "SYNTH SEQ";
     }
 
     // Update is called once per frame
