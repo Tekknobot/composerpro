@@ -27,7 +27,7 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);  
-            newObj.name = "RIM "+ i.ToString();                                                      
+            newObj.name = "DrumRow_0_"+ i.ToString();                                                      
         }
     }
 
@@ -36,7 +36,7 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.5f, 0.5f, 0.5f);   
-            newObj.name = "RIDE "+ i.ToString();                                                      
+            newObj.name = "DrumRow_1_"+ i.ToString();                                                      
         }
     }
 
@@ -45,7 +45,7 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);
-            newObj.name = "CRASH "+ i.ToString();                                                         
+            newObj.name = "DrumRow_2_"+ i.ToString();                                                         
         }
     }
 
@@ -54,7 +54,7 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);
-            newObj.name = "CLAP "+ i.ToString();                                                         
+            newObj.name = "DrumRow_3_"+ i.ToString();                                                         
         }
     }
 
@@ -63,7 +63,7 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.5f, 0.5f, 0.5f);  
-            newObj.name = "OHAT "+ i.ToString();                                                       
+            newObj.name = "DrumRow_4_"+ i.ToString();                                                       
         }
     }
 
@@ -72,7 +72,7 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);  
-            newObj.name = "CHAT "+ i.ToString();                                                       
+            newObj.name = "DrumRow_5_"+ i.ToString();                                                       
         }
     }
 
@@ -81,7 +81,7 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.5f, 0.5f, 0.5f); 
-            newObj.name = "SNARE "+ i.ToString();                                                        
+            newObj.name = "DrumRow_6_"+ i.ToString();                                                        
         }
     }    
 
@@ -90,7 +90,7 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);
-            newObj.name = "KICK "+ i.ToString();                                                         
+            newObj.name = "DrumRow_7_"+ i.ToString();                                                         
         }
     }                              
 }

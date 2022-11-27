@@ -15,8 +15,6 @@ public class CellDrag : MonoBehaviour
     public int startCell;
     public int startStep;
     public int dragCellCount = 0;
-    public int itemOne;
-    public int itemTwo;
 
     string myString;//string with your numbers
     public int[] myNumbers;
