@@ -146,7 +146,7 @@ public class MixersScript : MonoBehaviour
 		if (GameObject.Find ("Mixer 9")) {
 			synthMixerVol1 = GameObject.Find ("Mixer 9").GetComponent<Slider>().value;
 			PlayerPrefs.SetFloat("synthMixerVol1", synthMixerVol1);
-			mixer.SetFloat("Synth2", synthMixerVol1);
+			mixer.SetFloat("Synth1", synthMixerVol1);
 		}
 	}	
 
