@@ -14,6 +14,7 @@ public class BPMSlider : MonoBehaviour
     void Start()
     {
         mySlider = GetComponent<Slider>();
+        mySlider.value = PlayerPrefs.GetFloat("BPM");
         textmeshPro = GameObject.Find("BPMText").GetComponent<TextMeshProUGUI>();
     }
 
@@ -23,6 +24,7 @@ public class BPMSlider : MonoBehaviour
  
     public void UpdateSlider()
     {
-        GameObject.Find("AudioHelmClock").GetComponent<AudioHelmClock>().bpm = mySlider.value;                        
+        GameObject.Find("AudioHelmClock").GetComponent<AudioHelmClock>().bpm = mySlider.value; 
+        PlayerPrefs.SetFloat("BPM", GameObject.Find("AudioHelmClock").GetComponent<AudioHelmClock>().bpm);                       
     }
 }

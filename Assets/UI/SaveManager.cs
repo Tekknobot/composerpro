@@ -29,7 +29,7 @@ public class SaveManager : MonoBehaviour
         
     }
 
-    IEnumerator LoadNotesIntoSeq() {
+    public IEnumerator LoadNotesIntoSeq() {
         yield return new WaitForSeconds(1f);
         //Load notes into Synth Sequencer
         for (int i = 0; i < 84; i++) {
@@ -50,7 +50,7 @@ public class SaveManager : MonoBehaviour
         sequencerButton.GetComponent<SequencerButton>().sequencer = 0;      
     }  
 
-    IEnumerator LoadDrumNotesIntoSeq() {
+    public IEnumerator LoadDrumNotesIntoSeq() {
         yield return new WaitForSeconds(1f);
         //Load notes into Synth Sequencer
         for (int i = 0; i < 8; i++) {

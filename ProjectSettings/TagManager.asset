@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - drum_cell
+  - drumSeq_cell
+  - synth_cell
+  - synthSeq_cell
   layers:
   - Default
   - TransparentFX

@@ -6,19 +6,38 @@ using UnityEngine.UI;
 public class PopulateSeqBar : MonoBehaviour
 {
     public GameObject prefab;
-    public int numberToCreate = 16;
 
     // Start is called before the first frame update
     void Start()
     {
-        PopulateBar();
+        
     }
 
-    void PopulateBar() {
-        GameObject newObj;
-        for (int i = 0; i < numberToCreate; i++) {
-            newObj = (GameObject)Instantiate(prefab, transform);
-            newObj.name = "SQPOS "+ i.ToString();                                                        
+    public void PopulateBar(int numberToCycle) {
+        GameObject[] cells = GameObject.FindGameObjectsWithTag("drumSeq_cell");
+        foreach(GameObject cell in cells) { 
+            GameObject.Destroy(cell);
         }
-    }                           
+
+        GameObject newObj;
+        for (int i = 0; i < numberToCycle; i++) {
+            newObj = (GameObject)Instantiate(prefab, transform);
+            newObj.name = "SQPOS "+ i.ToString(); 
+            newObj.tag = "drumSeq_cell";                                                       
+        }        
+    } 
+
+    public void PopulateSynthBar(int numberToCycle) {
+        GameObject[] cells = GameObject.FindGameObjectsWithTag("synthSeq_cell");
+        foreach(GameObject cell in cells) { 
+            GameObject.Destroy(cell);
+        }
+
+        GameObject newObj;
+        for (int i = 0; i < numberToCycle; i++) {
+            newObj = (GameObject)Instantiate(prefab, transform);
+            newObj.name = "SQPOS "+ i.ToString(); 
+            newObj.tag = "synthSeq_cell";                                                       
+        }        
+    }                               
 }
