@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SequencerPos : MonoBehaviour
 {
     public GameObject drumSeqeuncer;
+    public GameObject synthSequencer;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,6 @@ public class SequencerPos : MonoBehaviour
             else if (drumSeqeuncer.GetComponent<SampleSequencer>().currentIndex != i && GameObject.Find("SQPOS_SYNTH "+ i.ToString())) {
                 GameObject.Find("SQPOS_SYNTH "+ i.ToString()).GetComponent<RawImage>().color = new Color(0.3f, 0.3f, 0.3f);
             }
-        }        
+        }               
     }
 }

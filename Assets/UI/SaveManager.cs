@@ -29,6 +29,7 @@ public class SaveManager : MonoBehaviour
     }
 
     public IEnumerator LoadNotesIntoSeq() {
+        synthSequencer.GetComponent<HelmSequencer>().Clear();
         yield return new WaitForSeconds(1f);
         //Load notes into Synth Sequencer
         for (int i = 0; i < 84; i++) {
@@ -50,6 +51,7 @@ public class SaveManager : MonoBehaviour
     }  
 
     public IEnumerator LoadDrumNotesIntoSeq() {
+        drumSequencer.GetComponent<SampleSequencer>().Clear();
         yield return new WaitForSeconds(1f);
         //Load notes into Synth Sequencer
         for (int i = 0; i < 8; i++) {

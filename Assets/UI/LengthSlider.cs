@@ -27,7 +27,7 @@ public class LengthSlider : MonoBehaviour
         if (mySlider.value == 1) {
             playButton.isOn = false;
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 16;
-            GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length = 16;
+            GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length = 16;            
             seqBarContent.GetComponent<PopulateSeqBar>().PopulateBar(16);
             drumContent.GetComponent<PopulateGrid>().PopulateGridFunction(16);
             drumContent.GetComponent<GridLayoutGroup>().constraintCount = 16;

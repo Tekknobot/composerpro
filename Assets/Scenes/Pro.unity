@@ -1877,8 +1877,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4294494}
   m_HandleRect: {fileID: 4294493}
   m_Direction: 0
-  m_Value: -0.00000056798444
-  m_Size: 0.51814437
+  m_Value: 0
+  m_Size: 0.5181443
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3185,6 +3185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drumSeqeuncer: {fileID: 274289422}
+  synthSequencer: {fileID: 971992620}
 --- !u!1 &274766600
 GameObject:
   m_ObjectHideFlags: 0
@@ -4643,7 +4644,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1419175099}
   m_HandleRect: {fileID: 1419175098}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7536,8 +7537,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 26545929}
   m_HandleRect: {fileID: 26545928}
   m_Direction: 0
-  m_Value: -0.00000056798444
-  m_Size: 0.51814437
+  m_Value: 0
+  m_Size: 0.5181443
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10020,6 +10021,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929649548}
   m_CullTransparentMesh: 1
+--- !u!83 &930187882
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 48000
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!1 &930325781
 GameObject:
   m_ObjectHideFlags: 0
@@ -10177,7 +10206,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1550570758}
   m_HandleRect: {fileID: 1550570757}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10305,7 +10334,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 268915523}
   m_HandleRect: {fileID: 268915522}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10670,7 +10699,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2427034281186838441, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 930187882}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -11921,7 +11950,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1750306578}
   m_HandleRect: {fileID: 1750306577}
   m_Direction: 0
-  m_Value: -0.0000004543875
+  m_Value: 0.00000022719375
   m_Size: 0.52428776
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14175,7 +14204,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1513812467}
   m_HandleRect: {fileID: 1513812466}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -17609,7 +17638,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1114434382}
   m_HandleRect: {fileID: 1114434381}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -19232,8 +19261,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 978022102}
   m_HandleRect: {fileID: 978022101}
   m_Direction: 0
-  m_Value: -0.00000007198052
-  m_Size: 0.47003752
+  m_Value: 0
+  m_Size: 0.4700375
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -20911,8 +20940,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 293491437}
   m_HandleRect: {fileID: 293491436}
   m_Direction: 0
-  m_Value: -0.00000007198052
-  m_Size: 0.47003752
+  m_Value: 0
+  m_Size: 0.4700375
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21115,7 +21144,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1265387369}
   m_HandleRect: {fileID: 1265387368}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
