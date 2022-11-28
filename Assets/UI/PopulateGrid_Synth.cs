@@ -9,7 +9,7 @@ public class PopulateGrid_Synth : MonoBehaviour
     //public int numberToCreate = 16;
     public int groupTotal = 7;
     public string noteName;
-    int rowCount = -1;
+    public int rowCount = -1;
 
     // Start is called before the first frame update
     void Start()

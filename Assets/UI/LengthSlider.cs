@@ -30,6 +30,7 @@ public class LengthSlider : MonoBehaviour
             drumContent.GetComponent<GridLayoutGroup>().constraintCount = 16;
 
             synthSeqBarContent.GetComponent<PopulateSeqBar>().PopulateSynthBar(16);
+            synthContent.GetComponent<PopulateGrid_Synth>().rowCount = -1;
             synthContent.GetComponent<PopulateGrid_Synth>().PopulateSynthGridFunction(16);
             synthContent.GetComponent<GridLayoutGroup>().constraintCount = 16;
 
@@ -44,6 +45,7 @@ public class LengthSlider : MonoBehaviour
             drumContent.GetComponent<GridLayoutGroup>().constraintCount = 32;
 
             synthSeqBarContent.GetComponent<PopulateSeqBar>().PopulateSynthBar(32);
+            synthContent.GetComponent<PopulateGrid_Synth>().rowCount = -1;
             synthContent.GetComponent<PopulateGrid_Synth>().PopulateSynthGridFunction(32);
             synthContent.GetComponent<GridLayoutGroup>().constraintCount = 32;
 
@@ -58,6 +60,7 @@ public class LengthSlider : MonoBehaviour
             drumContent.GetComponent<GridLayoutGroup>().constraintCount = 64;
 
             synthSeqBarContent.GetComponent<PopulateSeqBar>().PopulateSynthBar(64);
+            synthContent.GetComponent<PopulateGrid_Synth>().rowCount = -1;
             synthContent.GetComponent<PopulateGrid_Synth>().PopulateSynthGridFunction(64);   
             synthContent.GetComponent<GridLayoutGroup>().constraintCount = 64;     
 

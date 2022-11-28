@@ -33,7 +33,7 @@ public class SaveManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //Load notes into Synth Sequencer
         for (int i = 0; i < 84; i++) {
-            for (int j = 0; j < 16; j++) {
+            for (int j = 0; j < GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length; j++) {
                 for (int k = 0; k < 16; k++) {
                     if (PlayerPrefs.GetInt("Seq_1_" + (108-i) +"_"+ j +"_"+ (j+k)) == 1) {
                         synthSequencer.GetComponent<HelmSequencer>().AddNote(108 - i, j, j+k);
@@ -54,7 +54,7 @@ public class SaveManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //Load notes into Synth Sequencer
         for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 16; j++) {
+            for (int j = 0; j < GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length; j++) {
                 if (PlayerPrefs.GetInt("Drum_1_" + (67-i) +"_"+ j) == 1) {
                     drumSequencer.GetComponent<SampleSequencer>().AddNote(67-i, j, j+1);           
                     GameObject.Find("DrumRow_"+i+"_"+ j).GetComponent<RawImage>().color = Color.red;                    

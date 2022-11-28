@@ -24,10 +24,10 @@ public class ChangeCellColor_Synth : MonoBehaviour
         else {
             for (int i = 0; i < 84; i++) {
                 //img.GetComponent<RawImage>().color = Color.red;
-                for (int h = 0; h < 16; h++) {
-                    if (GameObject.Find("Row_"+i.ToString()+"_"+h).GetComponent<RawImage>().color == Color.red) {
+                for (int h = 0; h < GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length; h++) {
+                    //if (GameObject.Find("Row_"+i.ToString()+"_"+h).GetComponent<RawImage>().color == Color.red) {
                         //synthSequencer.GetComponent<HelmSequencer>().AddNote(108-i, h, h+1);
-                    }                             
+                    //}                             
                 }                                      
             } 
             PlaySynthRoll();           
@@ -41,7 +41,7 @@ public class ChangeCellColor_Synth : MonoBehaviour
 
     public void RemoveNotesFromDrumSequencer(GameObject cell) {
         for (int i = 0; i < 84; i++) { 
-            for (int h = 0; h < 16; h++) {       
+            for (int h = 0; h < GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length; h++) {       
                 if (cell.name == "Row_"+i.ToString()+"_"+h) {
                     synthSequencer.GetComponent<HelmSequencer>().RemoveNotesInRange(108-i, h, h+1);
                 } 
