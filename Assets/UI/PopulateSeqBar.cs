@@ -36,7 +36,7 @@ public class PopulateSeqBar : MonoBehaviour
         GameObject newObj;
         for (int i = 0; i < numberToCycle; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
-            newObj.name = "SQPOS "+ i.ToString(); 
+            newObj.name = "SQPOS_SYNTH "+ i.ToString(); 
             newObj.tag = "synthSeq_cell";                                                       
         }        
     }                               

@@ -19,13 +19,13 @@ public class LengthSlider : MonoBehaviour
     void Start()
     {
         mySlider = GetComponent<Slider>();
-        mySlider.value = 1;
         StartCoroutine(WaitFor());
     }
  
     public void UpdateSlider()
     {
         if (mySlider.value == 1) {
+            playButton.isOn = false;
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 16;
             GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length = 16;
             seqBarContent.GetComponent<PopulateSeqBar>().PopulateBar(16);
@@ -39,9 +39,9 @@ public class LengthSlider : MonoBehaviour
 
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());
-            playButton.isOn = false;
         }
-        if (mySlider.value == 2) {
+        else if (mySlider.value == 2) {
+            playButton.isOn = false;
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 32;
             GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length = 32;
             seqBarContent.GetComponent<PopulateSeqBar>().PopulateBar(32);
@@ -55,9 +55,9 @@ public class LengthSlider : MonoBehaviour
 
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());
-            playButton.isOn = false;
         }
-        if (mySlider.value == 3) {
+        else if (mySlider.value == 3) {
+            playButton.isOn = false;
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 64;
             GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length = 64;
             seqBarContent.GetComponent<PopulateSeqBar>().PopulateBar(64);
@@ -70,8 +70,7 @@ public class LengthSlider : MonoBehaviour
             synthContent.GetComponent<GridLayoutGroup>().constraintCount = 64;     
 
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());
-            StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());   
-            playButton.isOn = false;            
+            StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());               
         }                                    
     }
 

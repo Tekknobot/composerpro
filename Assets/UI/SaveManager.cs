@@ -19,8 +19,7 @@ public class SaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadNotesIntoSeq());
-        StartCoroutine(LoadDrumNotesIntoSeq());
+
     }
 
     // Update is called once per frame
