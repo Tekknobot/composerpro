@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AudioHelm;
 
 public class PopulateGrid_Synth : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PopulateGrid_Synth : MonoBehaviour
     public int groupTotal = 7;
     public string noteName;
     public int rowCount = -1;
+
+    public GameObject synthSequencer;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,7 @@ public class PopulateGrid_Synth : MonoBehaviour
     }            
 
     public void PopulateSynthGridFunction(int numberToPass) {
+        rowCount = -1;
         GameObject[] cells = GameObject.FindGameObjectsWithTag("synth_cell");
         foreach(GameObject cell in cells) { 
             GameObject.Destroy(cell);
@@ -58,6 +62,6 @@ public class PopulateGrid_Synth : MonoBehaviour
             PopulateBlackRow(numberToPass);
             PopulateWhiteRow(numberToPass);
             PopulateBlackRow(numberToPass);                        
-        }        
+        }    
     }                   
 }

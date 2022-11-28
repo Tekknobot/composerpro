@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AudioHelm;
 
 public class LengthSlider : MonoBehaviour
 {
@@ -12,12 +13,14 @@ public class LengthSlider : MonoBehaviour
     public GameObject synthContent;
 
     public GameObject saveManager;
+    public Toggle playButton;
  
     // Start is called before the first frame update
     void Start()
     {
         mySlider = GetComponent<Slider>();
-        UpdateSlider();
+        mySlider.value = 1;
+        StartCoroutine(WaitFor());
     }
  
     public void UpdateSlider()
@@ -36,6 +39,7 @@ public class LengthSlider : MonoBehaviour
 
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());
+            playButton.isOn = false;
         }
         if (mySlider.value == 2) {
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 32;
@@ -51,6 +55,7 @@ public class LengthSlider : MonoBehaviour
 
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());
+            playButton.isOn = false;
         }
         if (mySlider.value == 3) {
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 64;
@@ -65,7 +70,13 @@ public class LengthSlider : MonoBehaviour
             synthContent.GetComponent<GridLayoutGroup>().constraintCount = 64;     
 
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());
-            StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());               
+            StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());   
+            playButton.isOn = false;            
         }                                    
+    }
+
+    IEnumerator WaitFor() {
+        yield return new WaitForSeconds(0.1f);
+        UpdateSlider();
     }
 }

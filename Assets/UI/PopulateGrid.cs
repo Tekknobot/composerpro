@@ -2,27 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AudioHelm;
 
 public class PopulateGrid : MonoBehaviour
 {
     public GameObject prefab;
     public GameObject sequencerIndexObject;
-    public int numberToCreate = 16;
+    public GameObject drumSequencer;
 
     // Start is called before the first frame update
     void Start()
     {
-        // PopulateRow1();
-        // PopulateRow2();
-        // PopulateRow3();
-        // PopulateRow4();
-        // PopulateRow5();
-        // PopulateRow6();
-        // PopulateRow7();
-        // PopulateRow8();
+        
     }
 
-    void PopulateRow1() {
+    void PopulateRow1(int numberToCreate) {
         GameObject newObj;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
@@ -32,7 +26,7 @@ public class PopulateGrid : MonoBehaviour
         }
     }
 
-    void PopulateRow2() {
+    void PopulateRow2(int numberToCreate) {
         GameObject newObj;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
@@ -42,7 +36,7 @@ public class PopulateGrid : MonoBehaviour
         }
     }
 
-    void PopulateRow3() {
+    void PopulateRow3(int numberToCreate) {
         GameObject newObj;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
@@ -52,7 +46,7 @@ public class PopulateGrid : MonoBehaviour
         }
     }
 
-    void PopulateRow4() {
+    void PopulateRow4(int numberToCreate) {
         GameObject newObj;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
@@ -62,7 +56,7 @@ public class PopulateGrid : MonoBehaviour
         }
     }
 
-    void PopulateRow5() {
+    void PopulateRow5(int numberToCreate) {
         GameObject newObj;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
@@ -72,7 +66,7 @@ public class PopulateGrid : MonoBehaviour
         }
     }
 
-    void PopulateRow6() {
+    void PopulateRow6(int numberToCreate) {
         GameObject newObj;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
@@ -82,7 +76,7 @@ public class PopulateGrid : MonoBehaviour
         }
     }
 
-    void PopulateRow7() {
+    void PopulateRow7(int numberToCreate) {
         GameObject newObj;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
@@ -92,7 +86,7 @@ public class PopulateGrid : MonoBehaviour
         }
     }    
 
-    void PopulateRow8() {
+    void PopulateRow8(int numberToCreate) {
         GameObject newObj;
         for (int i = 0; i < numberToCreate; i++) {
             newObj = (GameObject)Instantiate(prefab, transform);
@@ -108,14 +102,13 @@ public class PopulateGrid : MonoBehaviour
             GameObject.Destroy(cell);
         }
 
-        numberToCreate = numberToPass;
-        PopulateRow1();
-        PopulateRow2();
-        PopulateRow3();
-        PopulateRow4();
-        PopulateRow5();
-        PopulateRow6();
-        PopulateRow7();
-        PopulateRow8();
+        PopulateRow1(numberToPass);
+        PopulateRow2(numberToPass);
+        PopulateRow3(numberToPass);
+        PopulateRow4(numberToPass);
+        PopulateRow5(numberToPass);
+        PopulateRow6(numberToPass);
+        PopulateRow7(numberToPass);
+        PopulateRow8(numberToPass);
     }                          
 }

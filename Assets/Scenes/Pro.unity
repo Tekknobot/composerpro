@@ -275,34 +275,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14486305}
   m_CullTransparentMesh: 1
---- !u!83 &16535624
-AudioClip:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: helm
-  m_LoadType: 0
-  m_Channels: 1
-  m_Frequency: 48000
-  m_BitsPerSample: 32
-  m_Length: 0
-  m_IsTrackerFormat: 0
-  m_Ambisonic: 0
-  m_SubsoundIndex: 0
-  m_PreloadAudioData: 1
-  m_LoadInBackground: 0
-  m_Legacy3D: 0
-  m_Resource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_CompressionFormat: 0
-  m_EditorResource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_EditorCompressionFormat: 0
 --- !u!1 &18656936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1253,7 @@ RectTransform:
   - {fileID: 656899583}
   - {fileID: 751454575}
   m_Father: {fileID: 499151478}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5996,8 +5968,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1225665163}
-  - {fileID: 1665277003}
   - {fileID: 110265010}
+  - {fileID: 1665277003}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7369,6 +7341,8 @@ MonoBehaviour:
   cell: {fileID: 5342596949903234947, guid: 37733be5c1ea29340920c3eaa5462aff, type: 3}
   groupTotal: 7
   noteName: Row_
+  rowCount: -1
+  synthSequencer: {fileID: 971992620}
 --- !u!1 &656899582
 GameObject:
   m_ObjectHideFlags: 0
@@ -7662,6 +7636,8 @@ MonoBehaviour:
   sequencer: 0
   drum: {fileID: 1665277002}
   synth: {fileID: 110265009}
+  saveManager: {fileID: 18656936}
+  synthContent: {fileID: 656864789}
 --- !u!114 &681701363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10244,6 +10220,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945554995}
   m_CullTransparentMesh: 1
+--- !u!83 &952185595
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 48000
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!1 &953913636
 GameObject:
   m_ObjectHideFlags: 0
@@ -10665,7 +10669,7 @@ MonoBehaviour:
   scrollPosition: {x: 0, y: 893}
   autoScroll: 0
   division: 1
-  zoom: 0.3
+  zoom: 0
   channel: 0
 --- !u!114 &971992622
 MonoBehaviour:
@@ -10693,7 +10697,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2427034281186838441, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
-  m_audioClip: {fileID: 16535624}
+  m_audioClip: {fileID: 952185595}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -11944,8 +11948,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1750306578}
   m_HandleRect: {fileID: 1750306577}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.32838
+  m_Value: 0.00000022719375
+  m_Size: 0.52428776
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12238,8 +12242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196.62, y: 190.68001}
-  m_SizeDelta: {x: 33.419, y: 416.65}
+  m_AnchoredPosition: {x: -186.33, y: 190.68001}
+  m_SizeDelta: {x: 54.01, y: 416.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1142401516
 MonoBehaviour:
@@ -13107,6 +13111,7 @@ MonoBehaviour:
   drumContent: {fileID: 2067006071}
   synthContent: {fileID: 656864789}
   saveManager: {fileID: 18656936}
+  playButton: {fileID: 1398708463}
 --- !u!114 &1238378869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16233,7 +16238,7 @@ RectTransform:
   - {fileID: 1142401515}
   - {fileID: 806988639}
   m_Father: {fileID: 499151478}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20186,7 +20191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5342596949903234947, guid: df87d5a682baf624eaeda01c1841f238, type: 3}
   sequencerIndexObject: {fileID: 5342596949903234947, guid: c8e707d4135426c4da1b2e8c34c0a77b, type: 3}
-  numberToCreate: 16
+  drumSequencer: {fileID: 274289422}
 --- !u!114 &2067006074
 MonoBehaviour:
   m_ObjectHideFlags: 0
