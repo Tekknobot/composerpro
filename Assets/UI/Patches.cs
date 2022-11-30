@@ -17,7 +17,14 @@ public class Patches : MonoBehaviour
     {
         textmeshPro = GameObject.Find("PatchName").GetComponent<TextMeshProUGUI>();
         synthSequencer.GetComponent<HelmController>().LoadPatch(patches[patchNumber]);
-        textmeshPro.text = patches[patchNumber].name;
+        if (PlayerPrefs.HasKey("Patch")) {
+            textmeshPro.text = patches[(int)PlayerPrefs.GetFloat("Patch")].name;
+            patchNumber = (int)PlayerPrefs.GetFloat("Patch");
+        }
+        else {
+            textmeshPro.text = patches[patchNumber].name;
+        }
+        
     }
 
     // Update is called once per frame
@@ -31,7 +38,8 @@ public class Patches : MonoBehaviour
         if (patchNumber >= 162) {
             patchNumber = 162;
         }            
-        textmeshPro.text = patches[patchNumber].name;
+        PlayerPrefs.SetFloat("Patch", patchNumber);
+        textmeshPro.text = patches[(int)PlayerPrefs.GetFloat("Patch")].name;
         synthSequencer.GetComponent<HelmController>().LoadPatch(patches[patchNumber]);	          
     }
 
@@ -39,8 +47,9 @@ public class Patches : MonoBehaviour
         patchNumber--;        
         if (patchNumber <= 0) {
             patchNumber = 0;
-        }         
-        textmeshPro.text = patches[patchNumber].name;
+        }   
+        PlayerPrefs.SetFloat("Patch", patchNumber);      
+        textmeshPro.text = patches[(int)PlayerPrefs.GetFloat("Patch")].name;
         synthSequencer.GetComponent<HelmController>().LoadPatch(patches[patchNumber]);       
     }    
 }
