@@ -29,15 +29,15 @@ public class SaveManager : MonoBehaviour
     }
 
     public IEnumerator LoadNotesIntoSeq() {
-        synthSequencer.GetComponent<HelmSequencer>().Clear();
+        synthSequencer.GetComponent<AudioHelm.HelmSequencer>().Clear();
         yield return new WaitForSeconds(1f);
         //Load notes into Synth Sequencer
         for (int i = 0; i < 84; i++) {
-            for (int j = 0; j < GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length; j++) {
+            for (int j = 0; j < GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length; j++) {
                 for (int k = 0; k < 16; k++) {
                     if (PlayerPrefs.GetInt("Seq_1_" + (108-i) +"_"+ j +"_"+ (j+k)) == 1) {
-                        synthSequencer.GetComponent<HelmSequencer>().AddNote(108 - i, j, j+k);
-                        noteTemp = synthSequencer.GetComponent<HelmSequencer>().GetNoteInRange(108-i, j, j+k);           
+                        synthSequencer.GetComponent<AudioHelm.HelmSequencer>().AddNote(108 - i, j, j+k);
+                        noteTemp = synthSequencer.GetComponent<AudioHelm.HelmSequencer>().GetNoteInRange(108-i, j, j+k);           
                         for (int h = 0; h < (noteTemp.end_ - noteTemp.start_); h++) { 
                             GameObject.Find("Row_"+ i +"_"+(noteTemp.start_+h)).GetComponent<RawImage>().color = Color.red;
                             GameObject.Find("Row_"+ i +"_"+(noteTemp.start_+h)).GetComponent<Outline>().effectDistance = new Vector2(0, -1);                                                           

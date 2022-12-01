@@ -7,7 +7,6 @@ public class SequencerButton : MonoBehaviour
     public GameObject drum;
     public GameObject synth;
     public GameObject saveManager;
-    public GameObject synthContent;
     TextMeshProUGUI textmeshPro;
 
     // Start is called before the first frame update
