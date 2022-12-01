@@ -29,11 +29,11 @@ public class SequencerPos : MonoBehaviour
 
         ////////////////
 
-        for (int i = 0; i < drumSeqeuncer.GetComponent<SampleSequencer>().length; i++) {
-            if (drumSeqeuncer.GetComponent<SampleSequencer>().currentIndex == i && GameObject.Find("SQPOS_SYNTH "+ i.ToString())) {
+        for (int i = 0; i < synthSequencer.GetComponent<HelmSequencer>().length; i++) {
+            if (synthSequencer.GetComponent<HelmSequencer>().currentIndex == i && GameObject.Find("SQPOS_SYNTH "+ i.ToString())) {
                 GameObject.Find("SQPOS_SYNTH "+ i.ToString()).GetComponent<RawImage>().color = Color.yellow;
             }
-            else if (drumSeqeuncer.GetComponent<SampleSequencer>().currentIndex != i && GameObject.Find("SQPOS_SYNTH "+ i.ToString())) {
+            else if (synthSequencer.GetComponent<HelmSequencer>().currentIndex != i && GameObject.Find("SQPOS_SYNTH "+ i.ToString())) {
                 GameObject.Find("SQPOS_SYNTH "+ i.ToString()).GetComponent<RawImage>().color = new Color(0.3f, 0.3f, 0.3f);
             }
         }               

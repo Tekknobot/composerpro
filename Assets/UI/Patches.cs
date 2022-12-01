@@ -8,7 +8,6 @@ public class Patches : MonoBehaviour
 {
     public GameObject synthSequencer;
     public AudioHelm.HelmPatch[] patches;
-    public GameObject patchLabel;
     public int patchNumber = 0;
     TextMeshProUGUI textmeshPro;
 
@@ -20,6 +19,7 @@ public class Patches : MonoBehaviour
         if (PlayerPrefs.HasKey("Patch")) {
             textmeshPro.text = patches[(int)PlayerPrefs.GetFloat("Patch")].name;
             patchNumber = (int)PlayerPrefs.GetFloat("Patch");
+            synthSequencer.GetComponent<HelmController>().LoadPatch(patches[patchNumber]);
         }
         else {
             textmeshPro.text = patches[patchNumber].name;
