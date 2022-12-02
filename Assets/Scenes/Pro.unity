@@ -10516,34 +10516,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
---- !u!83 &845139432
-AudioClip:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: helm
-  m_LoadType: 0
-  m_Channels: 1
-  m_Frequency: 48000
-  m_BitsPerSample: 32
-  m_Length: 0
-  m_IsTrackerFormat: 0
-  m_Ambisonic: 0
-  m_SubsoundIndex: 0
-  m_PreloadAudioData: 1
-  m_LoadInBackground: 0
-  m_Legacy3D: 0
-  m_Resource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_CompressionFormat: 0
-  m_EditorResource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_EditorCompressionFormat: 0
 --- !u!1 &852088406
 GameObject:
   m_ObjectHideFlags: 0
@@ -12090,7 +12062,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2427034281186838441, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
-  m_audioClip: {fileID: 845139432}
+  m_audioClip: {fileID: 1465321715}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -13669,8 +13641,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1750306578}
   m_HandleRect: {fileID: 1750306577}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.5202714
+  m_Value: -0.00000011359686
+  m_Size: 0.52025765
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13964,7 +13936,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -196.62, y: 190.68001}
-  m_SizeDelta: {x: 33.419, y: 416.65}
+  m_SizeDelta: {x: 33.417, y: 416.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1142401516
 MonoBehaviour:
@@ -16980,6 +16952,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f3b6e6a951d4582bfd784c7c9b4810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!83 &1465321715
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 48000
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!1 &1471652214
 GameObject:
   m_ObjectHideFlags: 0

@@ -105,18 +105,19 @@ public class CellDrag : MonoBehaviour
     }
 
     public void MouseDragLength() {      
-        if(Input.GetAxis("Mouse X") > 0) {
+        if(Input.GetAxis("Mouse X") > 0 && Input.GetAxis("Mouse Y") == 0) {
             UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
             UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(0, -1);  
             MyVar = UIRaycast(mousePos).name; 
         }    
-		if(Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse Y") < 0 || Input.GetAxis("Mouse Y") > 0 ) {
+		else if(Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse Y") < 0 || Input.GetAxis("Mouse Y") > 0 ) {
 			return;
 		}            
     }   
 
     public void MouseDragEnd() {    
         if (UIRaycast(mousePos).GetComponent<RawImage>().color != Color.red) {
+            tempStartCell.GetComponent<RawImage>().color = gridCellColor;
             return;
         }    
         synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+dragCellCount);

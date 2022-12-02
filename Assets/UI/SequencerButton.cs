@@ -33,7 +33,9 @@ public class SequencerButton : MonoBehaviour
             drum.transform.SetSiblingIndex(1);
             textmeshPro.text = "SYNTH SEQ";
             RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
-            synthRectTransform.localPosition = new Vector3(0, 0, 0);            
+            synthRectTransform.localPosition = new Vector3(0, 0, 0);
+            RectTransform drumRectTransform = drum.GetComponent<RectTransform>();
+            drumRectTransform.localPosition = new Vector3(0, 500, 0);                        
             sequencer = 1;
             
         }
@@ -41,7 +43,9 @@ public class SequencerButton : MonoBehaviour
             drum.transform.SetSiblingIndex(-1);
             textmeshPro.text = "DRUM SEQ";
             RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
-            synthRectTransform.localPosition = new Vector3(0, 500, 0);            
+            synthRectTransform.localPosition = new Vector3(0, 500, 0);    
+            RectTransform drumRectTransform = drum.GetComponent<RectTransform>();
+            drumRectTransform.localPosition = new Vector3(0, 0, 0);                        
             sequencer = 0;
         }        
     }
