@@ -118,12 +118,10 @@ public class CellDrag : MonoBehaviour
 
     public void MouseDragEnd() {    
         if (UIRaycast(mousePos).GetComponent<RawImage>().color != Color.red) {
-            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+1);
-            ResetDragCount();
+            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRowDrag(), startStep, startStep+dragCellCount);                  
             return;
         }    
         if (UIRaycast(mousePos).GetComponent<RawImage>().color == Color.red) {
-            Debug.Log(dragCellCount);
             synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+dragCellCount);
             tempStartCell.GetComponent<Outline>().effectDistance = new Vector2(1, -1);       
             PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ startStep +"_"+ (startStep+dragCellCount), 1); 
