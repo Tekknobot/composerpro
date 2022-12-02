@@ -90,7 +90,8 @@ public class CellDrag : MonoBehaviour
             synthSequencer.GetComponent<HelmSequencer>().RemoveNotesInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);            
             //return;
         } 
-        else if (this.GetComponent<RawImage>().color == gridCellColor) {          
+        else if (this.GetComponent<RawImage>().color == gridCellColor) {
+            startStep = DecodeStringStep();          
             this.GetComponent<RawImage>().color = Color.red;
             synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);  
             PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ DecodeStringStep() +"_"+ (DecodeStringStep()+1), 1); 
@@ -99,31 +100,35 @@ public class CellDrag : MonoBehaviour
 
     public void MouseDragBegin() {
         UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
-        UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(1, -1);        		
+        UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(1, -1);   
         startStep = DecodeStringStep();
         tempStartCell = UIRaycast(mousePos);
     }
 
     public void MouseDragLength() {      
-        if(Input.GetAxis("Mouse X") > 0 && Input.GetAxis("Mouse Y") == 0) {
+        if(Input.GetAxis("Mouse X") > 0 && tempStartCell.GetComponent<CellDrag>().DecodeStringRowDrag() == DecodeStringRow()) {
             UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
-            UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(0, -1);  
-            MyVar = UIRaycast(mousePos).name; 
+            UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(0, -1); 
+            MyVar = UIRaycast(mousePos).name;
         }    
-		else if(Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse Y") < 0 || Input.GetAxis("Mouse Y") > 0 ) {
+		if(Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse Y") < 0 || Input.GetAxis("Mouse Y") > 0) { 
 			return;
 		}            
     }   
 
     public void MouseDragEnd() {    
         if (UIRaycast(mousePos).GetComponent<RawImage>().color != Color.red) {
-            tempStartCell.GetComponent<RawImage>().color = gridCellColor;
+            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+1);
+            ResetDragCount();
             return;
         }    
-        synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+dragCellCount);
-        tempStartCell.GetComponent<Outline>().effectDistance = new Vector2(1, -1);       
-        PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ startStep +"_"+ (startStep+dragCellCount), 1); 
-        ResetDragCount();
+        if (UIRaycast(mousePos).GetComponent<RawImage>().color == Color.red) {
+            Debug.Log(dragCellCount);
+            synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), startStep, startStep+dragCellCount);
+            tempStartCell.GetComponent<Outline>().effectDistance = new Vector2(1, -1);       
+            PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ startStep +"_"+ (startStep+dragCellCount), 1); 
+            ResetDragCount();
+        }
     }    
 
     public void ResetDragCount() {
@@ -156,5 +161,19 @@ public class CellDrag : MonoBehaviour
         } 
         int step = myNumbers[5];
         return step;  
-    }    
+    }  
+
+    int DecodeStringRowDrag(){
+        string nameCell = tempStartCell.name;
+        string numbersOnly = Regex.Replace(nameCell, "[^0-9]", " ");        
+        string[] stringArray = numbersOnly.Split(" "[0]);//Split myString wherever there's a " " and make a string array out of it.
+        myNumbers = new int[stringArray.Length];
+        for(int num = 0; num < stringArray.Length; num++) {
+            if (int.TryParse(stringArray[num], out number)) {
+                myNumbers[num] = int.Parse(stringArray[num]);
+            }
+        } 
+        int row = myNumbers[4];
+        return row;  
+    }       
 }
