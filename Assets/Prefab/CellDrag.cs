@@ -119,6 +119,7 @@ public class CellDrag : MonoBehaviour
     public void MouseDragEnd() {    
         if (UIRaycast(mousePos).GetComponent<RawImage>().color != Color.red) {
             synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRowDrag(), startStep, startStep+dragCellCount);                  
+            PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRow()) +"_"+ startStep +"_"+ (startStep+dragCellCount), 1);
             return;
         }    
         if (UIRaycast(mousePos).GetComponent<RawImage>().color == Color.red) {
