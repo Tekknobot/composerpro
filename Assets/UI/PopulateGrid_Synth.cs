@@ -27,7 +27,11 @@ public class PopulateGrid_Synth : MonoBehaviour
             newObj = (GameObject)Instantiate(cell, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f); 
             newObj.name = noteName+rowCount+"_"+i; 
-            newObj.tag = "synth_cell";                                                     
+            newObj.tag = "synth_cell"; 
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }                                                                 
         } 
     }   
 
@@ -38,7 +42,11 @@ public class PopulateGrid_Synth : MonoBehaviour
             newObj = (GameObject)Instantiate(cell, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.5f, 0.5f, 0.5f);   
             newObj.name = noteName+rowCount+"_"+i;
-            newObj.tag = "synth_cell";                                                      
+            newObj.tag = "synth_cell";  
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }                                                                 
         } 
     }            
 

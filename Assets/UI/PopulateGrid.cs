@@ -22,7 +22,11 @@ public class PopulateGrid : MonoBehaviour
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);  
             newObj.name = "DrumRow_0_"+ i.ToString();  
-            newObj.tag = "drum_cell";                                                    
+            newObj.tag = "drum_cell";                 
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1); 
+            }                                   
         }
     }
 
@@ -32,7 +36,11 @@ public class PopulateGrid : MonoBehaviour
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.5f, 0.5f, 0.5f);   
             newObj.name = "DrumRow_1_"+ i.ToString();   
-            newObj.tag = "drum_cell";                                                  
+            newObj.tag = "drum_cell";  
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }                                                             
         }
     }
 
@@ -42,7 +50,11 @@ public class PopulateGrid : MonoBehaviour
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);
             newObj.name = "DrumRow_2_"+ i.ToString(); 
-            newObj.tag = "drum_cell";                                                        
+            newObj.tag = "drum_cell"; 
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }                                                                    
         }
     }
 
@@ -52,7 +64,11 @@ public class PopulateGrid : MonoBehaviour
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);
             newObj.name = "DrumRow_3_"+ i.ToString();
-            newObj.tag = "drum_cell";                                                         
+            newObj.tag = "drum_cell";
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }                                                                      
         }
     }
 
@@ -63,6 +79,10 @@ public class PopulateGrid : MonoBehaviour
             newObj.GetComponent<RawImage>().color = new Color(0.5f, 0.5f, 0.5f);  
             newObj.name = "DrumRow_4_"+ i.ToString();                                                       
             newObj.tag = "drum_cell";
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }             
         }
     }
 
@@ -72,7 +92,11 @@ public class PopulateGrid : MonoBehaviour
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);  
             newObj.name = "DrumRow_5_"+ i.ToString();
-            newObj.tag = "drum_cell";                                                       
+            newObj.tag = "drum_cell"; 
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }                                                                   
         }
     }
 
@@ -82,7 +106,11 @@ public class PopulateGrid : MonoBehaviour
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.5f, 0.5f, 0.5f); 
             newObj.name = "DrumRow_6_"+ i.ToString(); 
-            newObj.tag = "drum_cell";                                                       
+            newObj.tag = "drum_cell";  
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }                                                                  
         }
     }    
 
@@ -92,7 +120,11 @@ public class PopulateGrid : MonoBehaviour
             newObj = (GameObject)Instantiate(prefab, transform);
             newObj.GetComponent<RawImage>().color = new Color(0.7f, 0.7f, 0.7f);
             newObj.name = "DrumRow_7_"+ i.ToString(); 
-            newObj.tag = "drum_cell";                                                        
+            newObj.tag = "drum_cell"; 
+            if (i % 4 == 0) {
+                newObj.GetComponent<Outline>().effectColor = Color.white;
+                newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
+            }                                                                    
         }
     }    
 

@@ -18,6 +18,8 @@ public class SequencerButton : MonoBehaviour
         StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());
         textmeshPro = GameObject.Find("SequencerButtonText").GetComponent<TextMeshProUGUI>();
         textmeshPro.text = "DRUM SEQ";
+        RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
+        synthRectTransform.localPosition = new Vector3(0, 500, 0);        
     }
 
     // Update is called once per frame
@@ -30,12 +32,16 @@ public class SequencerButton : MonoBehaviour
         if (sequencer == 0) {
             drum.transform.SetSiblingIndex(1);
             textmeshPro.text = "SYNTH SEQ";
+            RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
+            synthRectTransform.localPosition = new Vector3(0, 0, 0);            
             sequencer = 1;
             
         }
         else if (sequencer == 1) {
             drum.transform.SetSiblingIndex(-1);
             textmeshPro.text = "DRUM SEQ";
+            RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
+            synthRectTransform.localPosition = new Vector3(0, 500, 0);            
             sequencer = 0;
         }        
     }

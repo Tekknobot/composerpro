@@ -150,6 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 5342596949903234950}
   gridCellColor: {r: 0, g: 0, b: 0, a: 0}
+  drumSampler: {fileID: 0}
+  startCell: 0
+  startStep: 0
+  dragCellCount: 0
+  myNumbers: 
 --- !u!114 &8419578984992378984
 MonoBehaviour:
   m_ObjectHideFlags: 0
