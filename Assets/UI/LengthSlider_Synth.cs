@@ -15,6 +15,8 @@ public class LengthSlider_Synth : MonoBehaviour
     public GameObject saveManager;
     public Toggle playButton;
  
+    public GameObject loadingText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class LengthSlider_Synth : MonoBehaviour
     public void UpdateSlider()
     {
         if (mySlider.value == 1) {
+            loadingText.SetActive(true);
             playButton.isOn = false;
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 16;
 
@@ -36,6 +39,7 @@ public class LengthSlider_Synth : MonoBehaviour
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());
         }
         else if (mySlider.value == 2) {
+            loadingText.SetActive(true);
             playButton.isOn = false;
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 32;
 
@@ -47,6 +51,7 @@ public class LengthSlider_Synth : MonoBehaviour
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());
         }
         else if (mySlider.value == 3) {
+            loadingText.SetActive(true);
             playButton.isOn = false;
             GameObject.Find("SynthSequencer").GetComponent<AudioHelm.HelmSequencer>().length = 64;
 

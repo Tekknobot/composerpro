@@ -10,6 +10,7 @@ public class PopulateGrid_Synth : MonoBehaviour
     public int groupTotal = 7;
     public string noteName;
     public int rowCount = -1;
+    public int stepCellsTotal = -1;
 
     public GameObject synthSequencer;
 
@@ -17,6 +18,10 @@ public class PopulateGrid_Synth : MonoBehaviour
     void Start()
     {
 
+    }
+
+    void Update() {
+        
     }
 
     void PopulateWhiteRow(int numberToCreate) {
@@ -30,7 +35,7 @@ public class PopulateGrid_Synth : MonoBehaviour
             if (i % 4 == 0) {
                 newObj.GetComponent<Outline>().effectColor = Color.white;
                 newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
-            }                                                                 
+            }                                                                
         } 
     }   
 
@@ -45,16 +50,23 @@ public class PopulateGrid_Synth : MonoBehaviour
             if (i % 4 == 0) {
                 newObj.GetComponent<Outline>().effectColor = Color.white;
                 newObj.GetComponent<Outline>().effectDistance = new Vector2(1, -1);
-            }                                                                 
+            }                                                               
         } 
     }            
 
     public void PopulateSynthGridFunction(int numberToPass) {
         rowCount = -1;
+        stepCellsTotal = -1;
         GameObject[] cells = GameObject.FindGameObjectsWithTag("synth_cell");
         foreach(GameObject cell in cells) { 
             GameObject.Destroy(cell);
         }    
+
+        StartCoroutine(PopulateGroup(numberToPass));
+    }      
+
+    IEnumerator PopulateGroup(int numberToPass) {
+        yield return new WaitForSeconds(0);
 
         for (int i = 0; i < groupTotal; i++) {
             PopulateWhiteRow(numberToPass);
@@ -69,6 +81,6 @@ public class PopulateGrid_Synth : MonoBehaviour
             PopulateBlackRow(numberToPass);
             PopulateWhiteRow(numberToPass);
             PopulateBlackRow(numberToPass);                        
-        }    
-    }                   
+        }
+    }             
 }
