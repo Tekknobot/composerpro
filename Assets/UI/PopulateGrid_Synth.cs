@@ -7,7 +7,6 @@ using AudioHelm;
 public class PopulateGrid_Synth : MonoBehaviour
 {
     public GameObject cell;
-    //public int numberToCreate = 16;
     public int groupTotal = 7;
     public string noteName;
     public int rowCount = -1;
