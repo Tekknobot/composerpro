@@ -210,6 +210,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4294492}
   m_CullTransparentMesh: 1
+--- !u!83 &5457795
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 48000
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!114 &8430418 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2828713858176172968, guid: 3b5c75e43d993734a8b29fdc92d10737, type: 3}
@@ -2053,7 +2081,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4294494}
   m_HandleRect: {fileID: 4294493}
   m_Direction: 0
-  m_Value: -0.00000022719381
+  m_Value: 0
   m_Size: 0.52032626
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3018,7 +3046,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6773,9 +6801,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 480, y: 800}
+  m_ReferenceResolution: {x: 908, y: 908}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -7133,7 +7161,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 26.991467
   orthographic: 1
   orthographic size: 5
   m_Depth: -1
@@ -7159,7 +7187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8559,8 +8587,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 26545929}
   m_HandleRect: {fileID: 26545928}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.5202714
+  m_Value: -0.00000011359691
+  m_Size: 0.5202715
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11845,7 +11873,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1550570758}
   m_HandleRect: {fileID: 1550570757}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12361,7 +12389,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2427034281186838441, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
-  m_audioClip: {fileID: 1758113115}
+  m_audioClip: {fileID: 5457795}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14031,7 +14059,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1750306578}
   m_HandleRect: {fileID: 1750306577}
   m_Direction: 0
-  m_Value: -0.00000011359686
+  m_Value: 0.00000022719372
   m_Size: 0.52025765
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16599,7 +16627,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1513812467}
   m_HandleRect: {fileID: 1513812466}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -19030,7 +19058,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 704400638}
   m_HandleRect: {fileID: 704400637}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20117,34 +20145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f3b6e6a951d4582bfd784c7c9b4810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!83 &1758113115
-AudioClip:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: helm
-  m_LoadType: 0
-  m_Channels: 1
-  m_Frequency: 48000
-  m_BitsPerSample: 32
-  m_Length: 0
-  m_IsTrackerFormat: 0
-  m_Ambisonic: 0
-  m_SubsoundIndex: 0
-  m_PreloadAudioData: 1
-  m_LoadInBackground: 0
-  m_Legacy3D: 0
-  m_Resource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_CompressionFormat: 0
-  m_EditorResource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_EditorCompressionFormat: 0
 --- !u!114 &1762213538 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6854569988861619865, guid: 3b5c75e43d993734a8b29fdc92d10737, type: 3}
@@ -20740,7 +20740,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1114434382}
   m_HandleRect: {fileID: 1114434381}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -25238,7 +25238,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1265387369}
   m_HandleRect: {fileID: 1265387368}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

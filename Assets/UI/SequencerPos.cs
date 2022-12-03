@@ -12,30 +12,13 @@ public class SequencerPos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < drumSeqeuncer.GetComponent<SampleSequencer>().length; i++) {
-            if (drumSeqeuncer.GetComponent<SampleSequencer>().currentIndex == i && GameObject.Find("SQPOS "+ i.ToString())) {
-                GameObject.Find("SQPOS "+ i.ToString()).GetComponent<RawImage>().color = Color.yellow;
-            }
-            else if (drumSeqeuncer.GetComponent<SampleSequencer>().currentIndex != i && GameObject.Find("SQPOS "+ i.ToString())) {
-                GameObject.Find("SQPOS "+ i.ToString()).GetComponent<RawImage>().color = new Color(0.3f, 0.3f, 0.3f);
-            }
-        }
-
-        ////////////////
-
-        for (int i = 0; i < synthSequencer.GetComponent<HelmSequencer>().length; i++) {
-            if (synthSequencer.GetComponent<HelmSequencer>().currentIndex == i && GameObject.Find("SQPOS_SYNTH "+ i.ToString())) {
-                GameObject.Find("SQPOS_SYNTH "+ i.ToString()).GetComponent<RawImage>().color = Color.yellow;
-            }
-            else if (synthSequencer.GetComponent<HelmSequencer>().currentIndex != i && GameObject.Find("SQPOS_SYNTH "+ i.ToString())) {
-                GameObject.Find("SQPOS_SYNTH "+ i.ToString()).GetComponent<RawImage>().color = new Color(0.3f, 0.3f, 0.3f);
-            }
-        }               
+        GameObject.Find("SQPOS "+ drumSeqeuncer.GetComponent<SampleSequencer>().currentIndex.ToString()).GetComponent<RawImage>().color = Color.yellow;
+        GameObject.Find("SQPOS_SYNTH "+ synthSequencer.GetComponent<HelmSequencer>().currentIndex.ToString()).GetComponent<RawImage>().color = Color.yellow;
     }
 }

@@ -33,7 +33,7 @@ public class LengthSlider : MonoBehaviour
 
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());
         }
-        else if (mySlider.value == 2) {
+        if (mySlider.value == 2) {
             playButton.isOn = false;
             GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length = 32;
             seqBarContent.GetComponent<PopulateSeqBar>().PopulateBar(32);
@@ -42,7 +42,7 @@ public class LengthSlider : MonoBehaviour
 
             StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());
         }
-        else if (mySlider.value == 3) {
+        if (mySlider.value == 3) {
             playButton.isOn = false;
             GameObject.Find("DrumSampler").GetComponent<AudioHelm.SampleSequencer>().length = 64;
             seqBarContent.GetComponent<PopulateSeqBar>().PopulateBar(64);

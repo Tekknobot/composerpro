@@ -29,7 +29,7 @@ public class SaveManager : MonoBehaviour
     }
 
     public IEnumerator LoadNotesIntoSeq() {
-        synthSequencer.GetComponent<AudioHelm.HelmSequencer>().Clear();
+        synthSequencer.GetComponent<HelmSequencer>().Clear();
         yield return new WaitForSeconds(1f);
         //Load notes into Synth Sequencer
         for (int i = 0; i < 84; i++) {
@@ -46,8 +46,7 @@ public class SaveManager : MonoBehaviour
                     }
                 }
             }	
-        }   
-        sequencerButton.GetComponent<SequencerButton>().sequencer = 0;      
+        }         
     }  
 
     public IEnumerator LoadDrumNotesIntoSeq() {
@@ -61,7 +60,6 @@ public class SaveManager : MonoBehaviour
                     GameObject.Find("DrumRow_"+i+"_"+ j).GetComponent<RawImage>().color = Color.red;                    
                 }
             }	
-        }   
-        sequencerButton.GetComponent<SequencerButton>().sequencer = 0;      
+        }      
     }        
 }

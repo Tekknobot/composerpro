@@ -69,7 +69,7 @@ public class CellDrag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = ScreenPosToPointerData(Input.mousePosition);
+        //mousePos = ScreenPosToPointerData(Input.mousePosition);
     }
 	
     private void VariableChangeHandler(string newVal) {
@@ -78,6 +78,7 @@ public class CellDrag : MonoBehaviour
 
     public void MouseClick() {
         if (this.GetComponent<RawImage>().color == Color.red) {
+            mousePos = ScreenPosToPointerData(Input.mousePosition);
             noteTemp = synthSequencer.GetComponent<HelmSequencer>().GetNoteInRange(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);           
             this.GetComponent<RawImage>().color = gridCellColor;
             UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(1, -1);      
@@ -91,6 +92,7 @@ public class CellDrag : MonoBehaviour
             //return;
         } 
         else if (this.GetComponent<RawImage>().color == gridCellColor) {
+            mousePos = ScreenPosToPointerData(Input.mousePosition);
             startStep = DecodeStringStep();          
             this.GetComponent<RawImage>().color = Color.red;
             synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRow(), DecodeStringStep(), DecodeStringStep()+1);  
@@ -99,6 +101,7 @@ public class CellDrag : MonoBehaviour
     }
 
     public void MouseDragBegin() {
+        mousePos = ScreenPosToPointerData(Input.mousePosition);
         UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
         UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(1, -1);   
         startStep = DecodeStringStep();
@@ -107,6 +110,7 @@ public class CellDrag : MonoBehaviour
 
     public void MouseDragLength() {      
         if(Input.GetAxis("Mouse X") > 0 && tempStartCell.GetComponent<CellDrag>().DecodeStringRowDrag() == DecodeStringRow()) {
+            mousePos = ScreenPosToPointerData(Input.mousePosition);
             UIRaycast(mousePos).GetComponent<RawImage>().color = Color.red; 
             UIRaycast(mousePos).GetComponent<Outline>().effectDistance = new Vector2(0, -1); 
             MyVar = UIRaycast(mousePos).name;
@@ -116,7 +120,8 @@ public class CellDrag : MonoBehaviour
 		}            
     }   
 
-    public void MouseDragEnd() {    
+    public void MouseDragEnd() { 
+        mousePos = ScreenPosToPointerData(Input.mousePosition);   
         if (UIRaycast(mousePos).GetComponent<RawImage>().color != Color.red) {
             synthSequencer.GetComponent<HelmSequencer>().AddNote(108-DecodeStringRowDrag(), startStep, startStep+dragCellCount);                  
             PlayerPrefs.SetInt("Seq_1_" + (108-DecodeStringRowDrag()) +"_"+ startStep +"_"+ (startStep+dragCellCount), 1);
