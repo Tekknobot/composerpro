@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
 {
     public GameObject synthSequencer;
     public GameObject drumSequencer;
+    public GameObject sampleSequencer;
     public AudioHelm.Note noteTemp;
     public GameObject sequencerButton;
 
@@ -61,5 +62,19 @@ public class SaveManager : MonoBehaviour
                 }
             }	
         }      
-    }        
+    }    
+
+    public IEnumerator LoadSampleNotesIntoSeq() {
+        sampleSequencer.GetComponent<SampleSequencer>().Clear();
+        yield return new WaitForSeconds(1f);
+        //Load notes into Synth Sequencer
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < GameObject.Find("SampleSequencer").GetComponent<AudioHelm.SampleSequencer>().length; j++) {
+                if (PlayerPrefs.GetInt("Sample_1_" + (75-i) +"_"+ j) == 1) {
+                    sampleSequencer.GetComponent<SampleSequencer>().AddNote(75-i, j, j+1);           
+                    GameObject.Find("SampleRow_"+i+"_"+ j).GetComponent<RawImage>().color = Color.red;                    
+                }
+            }	
+        }      
+    }          
 }

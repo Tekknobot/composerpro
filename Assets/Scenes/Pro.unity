@@ -328,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   synthSequencer: {fileID: 971992620}
   drumSequencer: {fileID: 274289422}
+  sampleSequencer: {fileID: 4856609506480078931}
   noteTemp:
     note_: 0
     start_: 0
@@ -6091,6 +6092,34 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!83 &400879734
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 48000
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!1 &411892373
 GameObject:
   m_ObjectHideFlags: 0
@@ -13917,7 +13946,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2427034281186838441, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
-  m_audioClip: {fileID: 1145968501}
+  m_audioClip: {fileID: 400879734}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -16076,34 +16105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f3b6e6a951d4582bfd784c7c9b4810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!83 &1145968501
-AudioClip:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: helm
-  m_LoadType: 0
-  m_Channels: 1
-  m_Frequency: 48000
-  m_BitsPerSample: 32
-  m_Length: 0
-  m_IsTrackerFormat: 0
-  m_Ambisonic: 0
-  m_SubsoundIndex: 0
-  m_PreloadAudioData: 1
-  m_LoadInBackground: 0
-  m_Legacy3D: 0
-  m_Resource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_CompressionFormat: 0
-  m_EditorResource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_EditorCompressionFormat: 0
 --- !u!1 &1150759250
 GameObject:
   m_ObjectHideFlags: 0
@@ -17959,7 +17960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b576ca72eb79354c9abf8efb7ef46d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5342596949903234947, guid: 1fa476649a328194bbf38b7e3744676a, type: 3}
+  prefab: {fileID: 5342596949903234947, guid: 0887fde41c0f6c249af9bbfd1f4f2e79, type: 3}
   numberToCreate: 16
   sampleSequencer: {fileID: 4856609506480078931}
 --- !u!114 &1315127907 stripped
@@ -28425,13 +28426,13 @@ AudioSource:
   m_GameObject: {fileID: 4856609506480078931}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5ba184b378d677f4a927b2dcf1dafc4c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -28694,7 +28695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyzones:
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 5e834a4622613fb4ea7e42ad98a8bf9d, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 60
     minKey: 60
@@ -28702,7 +28703,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 7020.842666666666
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: dda4ea0b4519bcc4f8d86f5d68c6a5e6, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 61
     minKey: 61
@@ -28710,7 +28711,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 7025.4293333333335
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 7168eb9eafc75ad46a171afe69973637, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 62
     minKey: 62
@@ -28718,7 +28719,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 7021.354666666667
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 41952ad1b9554a240bc4810aafebde95, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 63
     minKey: 63
@@ -28726,7 +28727,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 68dbca3df2a1ccb4ca1dc30c51c3786b, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 64
     minKey: 64
@@ -28734,7 +28735,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: cd99d54b355040a4899b508fc72ff833, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 65
     minKey: 65
@@ -28742,15 +28743,15 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 5ba184b378d677f4a927b2dcf1dafc4c, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 66
     minKey: 66
     maxKey: 66
     minVelocity: 0
     maxVelocity: 1
-    lastScheduled: 0
-  - audioClip: {fileID: 0}
+    lastScheduled: 2335.5306666666665
+  - audioClip: {fileID: 8300000, guid: 7a1ce763feee8bb45900d84c2aa1bf43, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 67
     minKey: 67
@@ -28758,7 +28759,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: e1dee8e8c436b91498710bedd1a40f93, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 68
     minKey: 68
@@ -28766,7 +28767,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: d7518690d576b7f418ac80cff35180c9, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 69
     minKey: 69
@@ -28774,7 +28775,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: a74e0885fba16a44794a3fb44de3fe5e, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 70
     minKey: 70
@@ -28782,7 +28783,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 08897eeef8876174793b05106dfd2e01, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 71
     minKey: 71
@@ -28790,7 +28791,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: b2109b52dadaa0547be968548e28129a, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 72
     minKey: 72
@@ -28798,7 +28799,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: e1ff1d362f91afb449ac86e75aea2fe5, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 73
     minKey: 73
@@ -28806,7 +28807,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: be2a8a18e7440dd4b849216d6e76ef1d, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 74
     minKey: 74
@@ -28814,7 +28815,7 @@ MonoBehaviour:
     minVelocity: 0
     maxVelocity: 1
     lastScheduled: 0
-  - audioClip: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: f3d0c97ff6ced7f45873e18d89c65670, type: 3}
     mixer: {fileID: 1874516330151614542, guid: 4bf917e21ab665843847bfb1c1bb43ad, type: 2}
     rootKey: 75
     minKey: 75
