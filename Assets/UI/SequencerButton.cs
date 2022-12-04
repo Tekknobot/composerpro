@@ -6,6 +6,7 @@ public class SequencerButton : MonoBehaviour
     public int sequencer = 0;
     public GameObject drum;
     public GameObject synth;
+    public GameObject sample;
     public GameObject saveManager;
     TextMeshProUGUI textmeshPro;
 
@@ -14,12 +15,15 @@ public class SequencerButton : MonoBehaviour
     {   
         drum.SetActive(true);
         synth.SetActive(true);
+        sample.SetActive(true);
         StartCoroutine(saveManager.GetComponent<SaveManager>().LoadDrumNotesIntoSeq());  
         StartCoroutine(saveManager.GetComponent<SaveManager>().LoadNotesIntoSeq());
         textmeshPro = GameObject.Find("SequencerButtonText").GetComponent<TextMeshProUGUI>();
         textmeshPro.text = "DRUM SEQ";
         RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
-        synthRectTransform.localPosition = new Vector3(0, 500, 0);        
+        synthRectTransform.localPosition = new Vector3(0, 500, 0);     
+        RectTransform sampleRectTransform = sample.GetComponent<RectTransform>();
+        sampleRectTransform.localPosition = new Vector3(0, 500, 0);            
     }
 
     // Update is called once per frame
@@ -35,8 +39,10 @@ public class SequencerButton : MonoBehaviour
             RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
             synthRectTransform.localPosition = new Vector3(0, 0, 0);
             RectTransform drumRectTransform = drum.GetComponent<RectTransform>();
-            drumRectTransform.localPosition = new Vector3(0, 500, 0);                        
-            sequencer = 1;
+            drumRectTransform.localPosition = new Vector3(0, 500, 0); 
+            RectTransform sampleRectTransform = sample.GetComponent<RectTransform>();
+            sampleRectTransform.localPosition = new Vector3(0, 500, 0);                                     
+            sequencer = 2;
             
         }
         else if (sequencer == 1) {
@@ -45,8 +51,22 @@ public class SequencerButton : MonoBehaviour
             RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
             synthRectTransform.localPosition = new Vector3(0, 500, 0);    
             RectTransform drumRectTransform = drum.GetComponent<RectTransform>();
-            drumRectTransform.localPosition = new Vector3(0, 0, 0);                        
+            drumRectTransform.localPosition = new Vector3(0, 0, 0);
+            RectTransform sampleRectTransform = sample.GetComponent<RectTransform>();
+            sampleRectTransform.localPosition = new Vector3(0, 500, 0);                                      
             sequencer = 0;
-        }        
+        }    
+
+        else if (sequencer == 2) {
+            drum.transform.SetSiblingIndex(-1);
+            textmeshPro.text = "SAMPLE SEQ";
+            RectTransform synthRectTransform = synth.GetComponent<RectTransform>();
+            synthRectTransform.localPosition = new Vector3(0, 500, 0);    
+            RectTransform drumRectTransform = drum.GetComponent<RectTransform>();
+            drumRectTransform.localPosition = new Vector3(0, 500, 0);  
+            RectTransform sampleRectTransform = sample.GetComponent<RectTransform>();
+            sampleRectTransform.localPosition = new Vector3(0, 0, 0);                                    
+            sequencer = 1;
+        }              
     }
 }

@@ -27,6 +27,20 @@ public class PopulateSeqBar : MonoBehaviour
         }        
     } 
 
+    public void PopulateSampleBar(int numberToCycle) {
+        GameObject[] cells = GameObject.FindGameObjectsWithTag("sampleSeq_cell");
+        foreach(GameObject cell in cells) { 
+            GameObject.Destroy(cell);
+        }
+
+        GameObject newObj;
+        for (int i = 0; i < numberToCycle; i++) {
+            newObj = (GameObject)Instantiate(prefab, transform);
+            newObj.name = "SQPOS_SAMPLE "+ i.ToString(); 
+            newObj.tag = "sampleSeq_cell";                                                       
+        }        
+    }     
+
     public void PopulateSynthBar(int numberToCycle) {
         GameObject[] cells = GameObject.FindGameObjectsWithTag("synthSeq_cell");
         foreach(GameObject cell in cells) { 
