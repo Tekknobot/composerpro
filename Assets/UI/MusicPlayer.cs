@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Text.RegularExpressions;
 using TMPro;
+using AudioHelm;
 
 public class MusicPlayer : MonoBehaviour
 {
@@ -37,7 +38,9 @@ public class MusicPlayer : MonoBehaviour
     public int songCount = 0;
     public int chopTimeIndex = 0;
 
-    TextMeshProUGUI textmeshPro;  
+    TextMeshProUGUI textmeshPro; 
+
+    public GameObject sampleSequencer; 
 
     private static string GetAndroidExternalFilesDir()
     {
@@ -83,7 +86,24 @@ public class MusicPlayer : MonoBehaviour
         Application.lowMemory += OnLowMemory;
 
         GetFileInfo();
-        StartCoroutine(LoadFile(soundFiles[0].FullName)); 
+        songCount = PlayerPrefs.GetInt("SongIndex");
+        if (PlayerPrefs.GetFloat("ChopCount") >= 18) {
+            StartCoroutine(LoadSaveFile(soundFiles[PlayerPrefs.GetInt("SongIndex")].FullName));
+            StartCoroutine(AddSong());
+            textmeshPro = GameObject.Find("ChopCount").GetComponent<TextMeshProUGUI>();
+            textmeshPro.text = PlayerPrefs.GetFloat("ChopCount").ToString();
+            textmeshPro.color = Color.red;               
+            for (int i = 0; i < PlayerPrefs.GetFloat("ChopCount"); i++) {          
+                chopTime.Add(PlayerPrefs.GetFloat("ChopTime "+ i.ToString()));
+            }
+            StopCurrent();
+        } 
+        if (chopTime.Count == 0) {
+            StartCoroutine(LoadFile(soundFiles[songCount].FullName)); 
+            StopCurrent();
+        }
+
+        StopCurrent();
     }
  
     public void ChangeAudioTime()
@@ -101,10 +121,10 @@ public class MusicPlayer : MonoBehaviour
         }
     }    
     
-    void previousTaskOnClick() {
+    public void PreviousOnClick() {
         if (soundFiles.Length == 0) {return;}
-        if (GameObject.Find ("FileName").GetComponent<Text>().text == "loading...") {return;};
         Seek(SeekDirection.Backward);
+        play.isOn = false;
         if (songCount <= 0) {return;}
         songCount--;
         StartCoroutine(LoadFile(soundFiles[songCount].FullName));
@@ -121,16 +141,16 @@ public class MusicPlayer : MonoBehaviour
         }  
     }  
 
-    void nextTaskOnClick() {
+    public void NextOnClick() {
         if (soundFiles.Length == 0) {return;}
-        if (GameObject.Find ("FileName").GetComponent<Text>().text == "loading...") {return;};
         Seek(SeekDirection.Forward);
+        play.isOn = false;
         if (songCount == soundFiles.Length - 1) {return;}
         songCount++;
         StartCoroutine(LoadFile(soundFiles[songCount].FullName));
     }    
 
-    void stopTaskOnClick() {
+    void StopTaskOnClick() {
         StopCurrent();
     }     
 
@@ -145,11 +165,24 @@ public class MusicPlayer : MonoBehaviour
         if (chopTimeIndex >= 0) {
             chopTimeIndex = chopTimeIndex+1;
         }
-        GameObject.Find("ChopCount").GetComponent<Text>().text = chopTime.Count.ToString();
+        textmeshPro = GameObject.Find("ChopCount").GetComponent<TextMeshProUGUI>();
+        textmeshPro.text = chopTime.Count.ToString();         
         if (chopTime.Count > 17) {
-            GameObject.Find("ChopCount").GetComponent<Text>().color = Color.red;
+            textmeshPro = GameObject.Find("ChopCount").GetComponent<TextMeshProUGUI>();
+            textmeshPro.color = Color.red;              
         }
     }    
+
+    public void ClearChops() {
+        chopTime.Clear();
+        song.Clear();
+        chopTimeIndex = 0;
+        GameObject.Find("SampleSequencer").GetComponent<AudioHelm.SampleSequencer>().Clear();
+        textmeshPro = GameObject.Find("ChopCount").GetComponent<TextMeshProUGUI>();
+        textmeshPro.text = "0";
+        textmeshPro.color = Color.white; 
+        PlayerPrefs.SetFloat("ChopCount", 0);        
+    }
     
     void Seek(SeekDirection d)
     {
@@ -209,6 +242,22 @@ public class MusicPlayer : MonoBehaviour
         StartCoroutine(LowMemory());
         Resources.UnloadUnusedAssets();
     }
+
+
+    public void ChopOn() {
+        for (int i = 0; i < sampleSequencer.GetComponent<SampleSequencer>().length; i++) {
+            for (int j = 0; j < 16; j++) {
+                if (GameObject.Find("SampleRow_"+j+"_"+ i.ToString()).GetComponent<RawImage>().color == Color.red) {      
+                    GetComponent<AudioSource>().time = GetComponent<MusicPlayer>().chopTime[i];
+                    Debug.Log(GetComponent<MusicPlayer>().chopTime[i]);
+                    GetComponent<AudioSource>().Play();  
+                    GetComponent<AudioSource>().SetScheduledEndTime(AudioSettings.dspTime + (GetComponent<MusicPlayer>().chopTime[i+1]-(GetComponent<MusicPlayer>().chopTime[i]))); 
+                    GetComponent<AudioSource>().Play();        
+                }
+            }
+        }  
+    }
+
     
     IEnumerator LoadFile(string path)
     {
@@ -236,7 +285,6 @@ public class MusicPlayer : MonoBehaviour
     {
         WWW www = new WWW("file://" + path);
         print("loading " + path);
-        GameObject.Find ("FileName").GetComponent<Text>().text = "loading...";
     
         AudioClip clip = www.GetAudioClip(false);
         while(!clip.isReadyToPlay)
@@ -246,6 +294,8 @@ public class MusicPlayer : MonoBehaviour
         clip.name = Path.GetFileName(path);
         clips.Add(clip);
         source.clip = clips[currentIndex];
+        textmeshPro = GameObject.Find("SongTitleText").GetComponent<TextMeshProUGUI>();
+        textmeshPro.text = source.clip.name.ToString(); 
     }    
 
     IEnumerator LowMemory() {
