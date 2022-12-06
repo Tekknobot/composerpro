@@ -267,9 +267,9 @@ public class MusicPlayer : MonoBehaviour
         GetComponent<AudioSource>().Stop();
         for(int i = 0; i < 16; i++) {
             if (GameObject.Find("SampleRow_"+i+"_"+sampleSequencer.GetComponent<SampleSequencer>().currentIndex).GetComponent<RawImage>().color == Color.red) {
-                GetComponent<AudioSource>().time = GetComponent<MusicPlayer>().chopTime[i];  
+                GetComponent<AudioSource>().time = GetComponent<MusicPlayer>().chopTime[(16-i)];  
                 GetComponent<AudioSource>().Play();
-                GetComponent<AudioSource>().SetScheduledEndTime(AudioSettings.dspTime + (GetComponent<MusicPlayer>().chopTime[i+1]-(GetComponent<MusicPlayer>().chopTime[i])));   
+                GetComponent<AudioSource>().SetScheduledEndTime(AudioSettings.dspTime + (GetComponent<MusicPlayer>().chopTime[(16-i)+1]-(GetComponent<MusicPlayer>().chopTime[(16-i)])));   
             }               
         }     
     }
