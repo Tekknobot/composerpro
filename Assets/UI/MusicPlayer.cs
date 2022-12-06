@@ -39,8 +39,27 @@ public class MusicPlayer : MonoBehaviour
     public int chopTimeIndex = 0;
 
     TextMeshProUGUI textmeshPro; 
+    public GameObject sampleSequencer;
+    Note index; 
 
-    public GameObject sampleSequencer; 
+	Dictionary<string, int> soundClip = new Dictionary<string, int>() {
+		{ "SampleRow_0", 0 },
+		{ "SampleRow_1", 1 },
+		{ "SampleRow_2", 2 },
+		{ "SampleRow_3", 3 },
+		{ "SampleRow_4", 4 },
+		{ "SampleRow_5", 5 },
+		{ "SampleRow_6", 6 },
+		{ "SampleRow_7", 7 },
+		{ "SampleRow_8", 8 },
+		{ "SampleRow_9", 9 },
+		{ "SampleRow_10", 10 },
+		{ "SampleRow_11", 11 },
+		{ "SampleRow_12", 12 },
+		{ "SampleRow_13", 13 },
+		{ "SampleRow_14", 14 },
+		{ "SampleRow_15", 15 },		
+	};    
 
     private static string GetAndroidExternalFilesDir()
     {
@@ -245,17 +264,14 @@ public class MusicPlayer : MonoBehaviour
 
 
     public void ChopOn() {
-        for (int i = 0; i < sampleSequencer.GetComponent<SampleSequencer>().length; i++) {
-            for (int j = 0; j < 16; j++) {
-                if (GameObject.Find("SampleRow_"+j+"_"+ i.ToString()).GetComponent<RawImage>().color == Color.red) {      
-                    GetComponent<AudioSource>().time = GetComponent<MusicPlayer>().chopTime[i];
-                    Debug.Log(GetComponent<MusicPlayer>().chopTime[i]);
-                    GetComponent<AudioSource>().Play();  
-                    GetComponent<AudioSource>().SetScheduledEndTime(AudioSettings.dspTime + (GetComponent<MusicPlayer>().chopTime[i+1]-(GetComponent<MusicPlayer>().chopTime[i]))); 
-                    GetComponent<AudioSource>().Play();        
-                }
-            }
-        }  
+        GetComponent<AudioSource>().Stop();
+        for(int i = 0; i < 16; i++) {
+            if (GameObject.Find("SampleRow_"+i+"_"+sampleSequencer.GetComponent<SampleSequencer>().currentIndex).GetComponent<RawImage>().color == Color.red) {
+                GetComponent<AudioSource>().time = GetComponent<MusicPlayer>().chopTime[i];  
+                GetComponent<AudioSource>().Play();
+                GetComponent<AudioSource>().SetScheduledEndTime(AudioSettings.dspTime + (GetComponent<MusicPlayer>().chopTime[i+1]-(GetComponent<MusicPlayer>().chopTime[i])));   
+            }               
+        }     
     }
 
     
